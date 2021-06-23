@@ -141,6 +141,11 @@ async def read_own_items(current_user: User = Depends(get_current_active_user)):
     return [{"item_id": "Foo", "owner": current_user.username}]
 
 
+@app.get("/")
+async def read_own_items():
+    return {"item_id": "Teste da API", "status": "Sucesso", "owner": 10}
+
+
 @app.post("/users/")
 async def create_user(schemas_user: SchemaUser, current_user: User = Depends(get_current_active_user)):
     if current_user.access_level != 0:
@@ -156,4 +161,5 @@ async def create_user(schemas_user: SchemaUser, current_user: User = Depends(get
 if __name__ == "__main__":
     import uvicorn
 
-    uvicorn.run("main:app")
+    uvicorn.run("main:app", host='127.0.0.1', port=5000,
+                reload=True, debug=True, workers=3)

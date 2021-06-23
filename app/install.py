@@ -4,8 +4,10 @@ from sqlite3 import Error
 from passlib.context import CryptContext
 from pydantic import BaseSettings
 
+
 class Settings(BaseSettings):
     secret: str  # autmatically taken from environement variable
+
 
 def create_table_users():
     try:
@@ -67,7 +69,8 @@ if __name__ == "__main__":
         with open(".env", "w") as f:
             f.write(f"SECRET={os.urandom(24).hex()}")
     DEFAULT_SETTINGS = Settings(_env_file=".env")
-    pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto").hash('asd')
+    pwd_context = CryptContext(
+        schemes=["bcrypt"], deprecated="auto").hash('asd')
     conn_sqlite = ConnSqlite()
     conn, cursor = conn_sqlite.conn()
     table = "users"

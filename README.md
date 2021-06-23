@@ -4,4 +4,10 @@ python -m venv edi_api_relatorios
 edi_api_relatorios\Scripts\activate
 
 
-docker build -f Dockerfile -t edi-api-relatorios:latest .
+Criando a imagem
+    docker build -f docker/Dockerfile -t danieldias/api .
+
+Criando um container a partir da imagem
+    docker run -d -p 8080:5000 danieldias/api
+
+
