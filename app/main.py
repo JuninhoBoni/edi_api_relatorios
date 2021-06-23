@@ -161,5 +161,5 @@ async def create_user(schemas_user: SchemaUser, current_user: User = Depends(get
 if __name__ == "__main__":
     import uvicorn
 
-    uvicorn.run("main:app", host='127.0.0.1', port=5000,
+    uvicorn.run("main:app", host='0.0.0.0', port=5000,
                 reload=True, debug=True, workers=3)
