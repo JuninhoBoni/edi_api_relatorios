@@ -6,7 +6,11 @@ __pycache__/
 # C extensions
 *.so
 
+# SQL Lite extensions
+*.db
+
 # Distribution / packaging
+edi_api_relatorios/
 .Python
 build/
 develop-eggs/
